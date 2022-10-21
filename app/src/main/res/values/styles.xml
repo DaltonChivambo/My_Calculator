@@ -18,6 +18,7 @@
     
     <style name="Numbers_Button" parent="Container_Button">
         <item name="backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
 </resources>
