@@ -68,7 +68,7 @@
         <Button
             android:id="@+id/bt_multiplication"
             style="@style/Operators_Button"
-            android:text="X"/>
+            android:text="x"/>
     </LinearLayout>
 
     <LinearLayout
