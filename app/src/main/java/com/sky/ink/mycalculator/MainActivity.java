@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import net.objecthunter.exp4j.Expression;
+import net.objecthunter.exp4j.ExpressionBuilder;
+
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -66,6 +69,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+
+        bt_equal.setOnClickListener(view -> {
+           try {
+               //object_hunter Class ()
+               // responsible for doing all math operations
+               Expression expression = new ExpressionBuilder(tv_expression.getText().toString()).build();
+               double result = expression.evaluate();
+
+               long long_result = (long) result;
+
+               if (result == (long) long_result){
+                   tv_result.setText((CharSequence)String.valueOf(long_result));
+               }else {
+                   tv_result.setText((CharSequence) String.valueOf(result));
+               }
+           } catch (Exception e){
+
+           }
+        });
+
     }
 
     private void initComponents(){
@@ -97,17 +120,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void concatExpression(String s, boolean clean_data){
 
-        if (tv_result.getText().equals("")){
-            tv_expression.setText("");
+        if (tv_result.getText().equals(" ")){
+            tv_expression.setText(" ");
         }
 
         if (clean_data){
-            tv_result.setText("");
+            tv_result.setText(" ");
             tv_expression.append(s);
         }else{
             tv_expression.append(tv_result.getText());
             tv_expression.append(s);
-            tv_result.setText("");
+            tv_result.setText(" ");
         }
     }
 
