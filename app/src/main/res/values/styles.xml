@@ -17,7 +17,7 @@
     </style>
     
     <style name="Numbers_Button" parent="Container_Button">
-        <item name="backgroundTint">@drawable/shape_pressioned_state_number</item>
+        <item name="backgroundTint">@drawable/selector_number</item>
         <item name="android:textColor">@color/black</item>
     </style>
 
