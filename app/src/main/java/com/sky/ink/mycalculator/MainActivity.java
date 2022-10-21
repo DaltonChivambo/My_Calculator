@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bt_division.setOnClickListener(this);
 
         bt_clear.setOnClickListener(view -> {
-            tv_expression.setText("");
-            tv_result.setText("");
+            tv_expression.setText(" ");
+            tv_result.setText(" ");
         });
 
         iv_backspace.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     String expression = string.substring(var0,var1);
                     return_expression.setText(expression);
                 }
-                tv_result.setText("");
+                tv_result.setText(" ");
             }
         });
 
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                long long_result = (long) result;
 
                if (result == (long) long_result){
-                   tv_result.setText((CharSequence)String.valueOf(long_result));
+                   tv_result.setText((CharSequence) String.valueOf(long_result));
                }else {
                    tv_result.setText((CharSequence) String.valueOf(result));
                }
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void concatExpression(String s, boolean clean_data){
 
-        if (tv_result.getText().equals(" ")){
+        if (tv_result.getText().equals("")){
             tv_expression.setText(" ");
         }
 
