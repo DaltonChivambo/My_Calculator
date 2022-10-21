@@ -3,13 +3,14 @@ package com.sky.ink.mycalculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private  Button [] button_number = new Button[10];
 
@@ -23,8 +24,30 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Objects.requireNonNull(getSupportActionBar()).hide();
         initComponents();
+        Objects.requireNonNull(getSupportActionBar()).hide();
+
+        button_number[0].setOnClickListener(this);
+        button_number[1].setOnClickListener(this);
+        button_number[2].setOnClickListener(this);
+        button_number[3].setOnClickListener(this);
+        button_number[4].setOnClickListener(this);
+        button_number[5].setOnClickListener(this);
+        button_number[6].setOnClickListener(this);
+        button_number[7].setOnClickListener(this);
+        button_number[8].setOnClickListener(this);
+        button_number[9].setOnClickListener(this);
+        bt_score.setOnClickListener(this);
+        bt_addition.setOnClickListener(this);
+        bt_subtraction.setOnClickListener(this);
+        bt_multiplication.setOnClickListener(this);
+        bt_division.setOnClickListener(this);
+
+        bt_clear.setOnClickListener(view -> {
+            tv_expression.setText("");
+            tv_result.setText("");
+        });
+
     }
 
     private void initComponents(){
@@ -52,5 +75,46 @@ public class MainActivity extends AppCompatActivity {
        tv_result = findViewById(R.id.tv_result);
 
        iv_backspace = findViewById(R.id.iv_backspace);
+    }
+
+    public void concatExpression(String s, boolean clean_data){
+
+        if (tv_result.getText().equals("")){
+            tv_expression.setText("");
+        }
+
+        if (clean_data){
+            tv_result.setText("");
+            tv_expression.append(s);
+        }else{
+            tv_expression.append(tv_result.getText());
+            tv_expression.append(s);
+            tv_result.setText("");
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()){
+            case R.id.bt_zero: concatExpression("0",true); break;
+            case R.id.bt_one: concatExpression("1",true); break;
+            case R.id.bt_two: concatExpression("2",true); break;
+            case R.id.bt_three: concatExpression("3",true); break;
+            case R.id.bt_four: concatExpression("4",true); break;
+            case R.id.bt_five: concatExpression("5",true); break;
+            case R.id.bt_six: concatExpression("6",true); break;
+            case R.id.bt_seven: concatExpression("7",true); break;
+            case R.id.bt_eight: concatExpression("8",true); break;
+            case R.id.bt_nine: concatExpression("9",true); break;
+            case R.id.bt_score: concatExpression(".",true); break;
+            case R.id.bt_addition: concatExpression("+",false); break;
+            case R.id.bt_subtraction: concatExpression("-",false); break;
+            case R.id.bt_multiplication: concatExpression("*",false); break;
+            case R.id.bt_division: concatExpression("/",false); break;
+
+
+        }
+
     }
 }
