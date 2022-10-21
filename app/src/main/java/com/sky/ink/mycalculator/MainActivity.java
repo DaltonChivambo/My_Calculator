@@ -48,6 +48,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             tv_result.setText("");
         });
 
+        iv_backspace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView return_expression = findViewById(R.id.tv_expression);
+                String string = return_expression.getText().toString();
+
+                if(!string.isEmpty()){
+                    byte var0 = 0;
+                    int var1 = string.length()-1;
+
+                    //substring needs var0 for don't have error on the App
+                    String expression = string.substring(var0,var1);
+                    return_expression.setText(expression);
+                }
+                tv_result.setText("");
+            }
+        });
+
     }
 
     private void initComponents(){

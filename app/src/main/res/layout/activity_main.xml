@@ -12,7 +12,6 @@
         android:id="@+id/tv_expression"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:text="5+5"
         android:textColor="@color/black"
         android:textSize="40sp"
         android:gravity="end"
@@ -24,7 +23,6 @@
         android:id="@+id/tv_result"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:text="10"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:gravity="end"
@@ -68,7 +66,7 @@
         <Button
             android:id="@+id/bt_multiplication"
             style="@style/Operators_Button"
-            android:text="x"/>
+            android:text="*"/>
     </LinearLayout>
 
     <LinearLayout
